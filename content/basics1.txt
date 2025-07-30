@@ -1,0 +1,111 @@
+Basics of c++
+
+To output the data in c++
+
+cout << value1 << value2 << value3 << endl;
+
+endl is used for new line
+
+
+Bool Data type 
+
+bool a = true
+
+cout << a << endl;
+
+it prints 1 as output instead of true. so here true will be printed as 1 and 
+
+false will be printed as 0.
+
+
+Input in C++
+
+cin >> value1 >> value2 >> value3 >> endl;
+
+
+For loops 
+
+
+for(s1;s2;s3){}
+
+
+while loops
+
+while(condition){}
+
+
+Arrays 
+
+int arr[5] = {1, 2, 34, 5, 6};
+
+to print values of array 
+
+for(int i=0; i<n; i++){
+    cout << arr[i] << endl;
+}
+
+or we can use this
+
+for(auto val : arr){
+    cout << val << endll;
+}
+
+here val represents the element of the array not the index.
+
+
+if the array is double then we should use &
+
+for(auto &val : arr){
+    cout << val << endl;
+}
+
+
+Range of data types 
+
+1) Int :- -2^32 to 2^32 - 1
+
+it will be appromately equal to 10^9 and
+long int will be same as int
+
+2 ) long long int : -2^64 to 2^64 - 1
+
+it will be appromately equal to 10^18
+
+so whenever the consraints will be 10^9 then use int and 
+            the constraints will be 10^18 then use long long int
+
+3) Float will be 7 digits
+   Double will be 15 digits
+   long double will be 18 digits
+
+
+NameSpace :- It contains various variables and functions
+
+using namespace std; will be used frequently
+
+if we dont use above statement then we have to use like this 
+
+std :: cin >> val >> endl;
+
+at every statement
+
+
+Header Files :- It contains various functions and etc
+
+#include <iostream> will be used for inputs and outputs
+
+but if we declare like this then we have to define many statements for various uses 
+
+like one for strings one for maps and etc.
+
+
+#include <bits/stdc++.h> will be used in the competitive programming.
+
+this statement includes all libraries we require in the program and 
+
+we dont need to include any other statements.
+
+use this in cp to save the time
+
+but don't use this in development.
+
