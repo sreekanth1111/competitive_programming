@@ -20,7 +20,7 @@ int main(){
         bool isvalid = true;
 
         if(k == 1){
-            for(int x=0; x<n-1; x++){
+            for(int x=0; x<n; x++){
                 if(arr[x]>arr[x+1]){
                     isvalid = false;
                     break;
