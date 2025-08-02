@@ -109,3 +109,6 @@ use this in cp to save the time
 
 but don't use this in development.
 
+
+ceil(a/b) = (a+b-1)/b
+
