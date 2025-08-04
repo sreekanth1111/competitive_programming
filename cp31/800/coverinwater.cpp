@@ -15,16 +15,25 @@ int main(){
 
         for(int j=0; j<n; j++){
             if(str[j] == '#'){
-                if(continuous >= 3) total += 2;
-                else total += continuous;
-                continuous = 0;
-            }
-            else if(str[j] == '.'){
-                continuous++;
-                if(j == n-1){
-                    if(continuous >= 3) total += 2;
-                    else total += continuous;
+                if(continuous >= 3){
+                    total = 2;
+                    break;
+                }
+                else{
+                    total += continuous;
                     continuous = 0;
+                }
+            }
+            else{
+
+                continuous += 1;
+                if(j == n-1){
+                    if(continuous >= 3){
+                        total = 2;
+                    }
+                    else{
+                        total += continuous;
+                    }
                 }
             }
         }
