@@ -112,3 +112,32 @@ but don't use this in development.
 
 ceil(a/b) = (a+b-1)/b
 
+
+Time Complexity
+
+1second ~ 10^7 to 10^9 operations depends on quality of the code
+
+Elementary Operations takes constant time
+
+int a,b,c,d;
+
+res = (a+b+c+d)/4; is an Elementary Operation
+
+string s, t;
+
+if(s<t){
+    cout << s << endl;
+}
+
+it is not an Elementary Operation
+
+cin >> s is not an Elementary Operation
+
+string operations are not Elementary
+
+
+in general , O(100000n^2) will be treated as O(n^2)
+
+but if time limit per test is like say 1 second or say a 
+finite amount of time then O(100000N^2) will be treated differently than O(n^2)
+
