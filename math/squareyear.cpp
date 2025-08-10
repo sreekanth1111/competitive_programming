@@ -1,38 +1,25 @@
-#include<iostream>
-#include<cmath>
+#include<bits/stdc++.h>
 
 using namespace std;
 
 int main(){
-    int t;
-    cin >> t;
-    int num;
-    int root;
-    bool ispossible[t];
-    int result[t];
-    int result1[t];
+    int t; cin >> t;
 
-    for(int i=0; i<t; i++){
-        cin >> num;
+    while(t--){
+        string str; cin >> str;
+        int num = stoi(str);
+        int root;
+
         root = sqrt(num);
 
         if(root*root == num){
-            ispossible[i] = true;
-            result[i] = 1;
-            result1[i] = root-1;
+            cout << 0 << " " << root << endl;
         }
         else{
-            ispossible[i] = false;
-            result[i] = -1;
+            cout << -1 << endl;
         }
+        
     }
 
-    for(int i=0; i<t; ++i){
-        if(ispossible[i]){
-            cout << result[i] << " " << result1[i] << endl;
-        }
-        else{
-            cout << result[i] << endl;
-        }
-    }
+    
 }
