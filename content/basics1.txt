@@ -131,7 +131,7 @@ if(s<t){
 
 it is not an Elementary Operation
 
-cin >> s is not an Elementary Operation
+cin >> s is not an Elementary Operation . it takes O(N) time
 
 string operations are not Elementary
 
@@ -140,4 +140,24 @@ in general , O(100000n^2) will be treated as O(n^2)
 
 but if time limit per test is like say 1 second or say a 
 finite amount of time then O(100000N^2) will be treated differently than O(n^2)
+
+
+String s = "abc";
+
+s[1] = "a"; this is not allowed
+
+s[1] = 'a'; this is allowed 
+
+'a' is literal "a" is string
+
+reverse(s.begin(),s.end()) reverses the string
+
+s.begin takes the index 0 and s.end taked the index n and n is exclusive
+
+cout << (s == t ? "YES" : "NO") << endl; ternery operator
+
+transform(s.begin(), s.end(), s.begin(), ::tolower);
+
+it converts each and every letter of the string to lower case
+
 
