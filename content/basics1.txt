@@ -285,6 +285,58 @@ gcd(a,b,c) = gcd(gcd(a,b),c);
 lcm(a,b,c) = lcm(lcm(a,b),c);
 
 
+Prefix sum stores the sum of the prefix of an array at each index
+
+takes O(n) time
+
+int p[n], p[0] = a[0];
+for(int i=1; i<n; i++){
+    p[i] = p[i-1] + a[i];
+}
+
+Binary Search - O(logn) time
+
+use this if target is present in the vector
+
+bool binarysearch(vector<int>a, int k){
+    left = 0; right = a.size()-1;
+    while(left<=right){
+        int mid = (left+right)/2;
+
+        if(a[mid] == k) return true;
+        else if(a[mid]>k) right = mid-1;
+        else left = mid+1;
+    }
+    return false;
+}
+
+to find the last index of the target
+
+bool binarysearch(vector<int>a, int k){
+    left = 0; right = a.size()-1;
+    while(left<right){
+        int mid = (left+right+1)/2; // mid will be ceil function (a+b-1)/b
+
+        if(a[mid]<=k) left=mid;
+        else right = mid-1;
+    }
+    return (left==k) ? left : -1;
+}
+
+to find the first index of the target
+
+bool binarysearch(vector<int>a, int k){
+    left = 0; right = a.size()-1;
+    while(left<right){
+        int mid = (left+right)/2;  // mid will be floor function
+
+        if(a[mid]>=k) right=mid;
+        else left = mid+1;
+    }
+    return (left==k) ? left : -1;
+}
+
+when (l+r)/2 overflows use l + (r-l)/2
 
 
 
