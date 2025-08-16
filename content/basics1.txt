@@ -339,6 +339,33 @@ bool binarysearch(vector<int>a, int k){
 when (l+r)/2 overflows use l + (r-l)/2
 
 
+alternative binary Search - better than traditional binary Search
+and never goes into infinite loop
+
+l = -1, r = n;
+while(r-l>1){
+    m = (l+r)/2;
+    if(a[m]<target){
+        l = m;
+    }
+    else{
+        r = m;
+    }
+}
+
+when u want first index of target use the above 
+
+and r will be the index
+
+when u want last index of the target use
+
+a[i] <= target and l will be the index
+
+
+
+
+
+
 
 
 
