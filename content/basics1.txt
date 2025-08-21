@@ -375,7 +375,13 @@ these functions are similar to the binary search
 so we can use these functions in place of binary search
 
 
+If we can able to manage to deduce the array into continuous of true values
 
+and then continuous false values or vice versa using predicate function 
+
+even though the array is not increasing or decreasing then 
+
+we can do a binary search on it.
 
 
 
