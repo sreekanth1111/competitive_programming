@@ -362,6 +362,19 @@ when u want last index of the target use
 a[i] <= target and l will be the index
 
 
+lower_bound returns the index of the first element that is >= target
+
+lower_bound(v.begin(),v.end(),target);
+
+upper_bound returns the index of the first element that is > target
+
+upper_bound(v.begin(),v.end(),target);
+
+these functions are similar to the binary search 
+
+so we can use these functions in place of binary search
+
+
 
 
 
