@@ -384,6 +384,62 @@ even though the array is not increasing or decreasing then
 we can do a binary search on it.
 
 
+Standard template library (STL) is a set of classes and functions to perform
+
+various tasks.
+
+pair<int,int> p = {1,5};
+
+pair is used to store two values int,int or int, string or any other
+
+
+unlike arrays, vectors can be resized
+
+v.begin() points to index 1 and v.end() points to index N
+
+v.insert(v.begin()+1,4) inserts 4 at position 2
+
+v.erase(v.begin()+1) removes the element at position 2
+
+v.clear() deletes entire vector
+
+v.size() returns the size of the vector i.e, no of elements in the vector
+
+v.empty() return true if the vector is empty
+
+
+sets store the elements in ascending order
+
+insertion, deletion and updation takes O(logn) time 
+
+because it uses binary search
+
+map<int,int> mp;
+
+mp[1] = 5;
+mp[1000] = 3;
+
+it only stores above elements . it doesn't contain any elements btw
+
+1 and 1000
+
+to iterate 
+
+for(auto i:mp) cout << i.first << i.second << endl;
+
+for(auto [a,b]:mp) cout << a << b;
+
+maps also stores in ascending order similar to sets
+
+both sets and maps doesn't preserve our orginal order
+
+mp.find("a") == mp.end() it indicates "a" is not present
+
+else it exists
+
+
+
+
 
 
 
