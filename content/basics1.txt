@@ -438,6 +438,24 @@ mp.find("a") == mp.end() it indicates "a" is not present
 else it exists
 
 
+ordered set takes O(logn) time which stores in sorted order
+
+unordered set takes O(1) for all operations insertion deletion searching
+
+unordered_set<int> s = {1,2,3,4};
+
+unordered maps is similar to maps but doesnt store in sorted order and performs
+
+operations in O(1) time
+
+in unordered map we can use pair and vector and other
+
+but in unordered set we can't use the pair and vector inside it
+
+both of these is based on hash function 
+
+
+
 
 
 
