@@ -557,6 +557,26 @@ map<int , decltype(&compare)>mp(compare)
 priority_queue<int, decltype(&compare)> pq(compare)
 
 
+find the maximum sum of the subarray of k using sliding window
+
+sum =0; maxi = 0;
+for(int i=0; i<k; i++){
+    sum += arr[i];
+}
+
+maxi = max(maxi,sum);
+
+for(int i=k; i<n; i++){
+    add_index = i;
+    remove_index = i-k;
+    sum = sum + arr[add_index] - arr[remove_index];
+    maxi = max(maxi,sum);
+}
+
+cout << maxi << endl;
+
+
+
 
 
 
