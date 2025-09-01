@@ -1,0 +1,19 @@
+2d vector
+
+vector<vector<int>(col)>mat(row);
+
+sets can't have duplicate elements
+
+multiset<int> st;
+
+it stores duplicate elements
+
+map can't have duplicate keys
+
+multimap can have duplicate keys
+
+multimap<int,int> mp;
+
+stack<int> st;
+
+st.push(10) st.top() st.pop() st.size() st.empty()
