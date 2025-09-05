@@ -17,3 +17,55 @@ multimap<int,int> mp;
 stack<int> st;
 
 st.push(10) st.top() st.pop() st.size() st.empty()
+
+Recursion & Memoization
+
+for fibonocci series time complexity will be O(2^n) because we calculate the 
+
+intermediate values each and every time
+
+int fib(int n){
+    if(n<=1){
+        return n;
+    }
+    return fib(n-1)+fib(n-2);
+}
+
+so to reduce time complexity from O(2^n) to O(n) we use Memoization
+
+dp[n] is initialized -1 indicating that values are empty
+
+int fib(int n){
+    if(n<=1){
+        return n;
+    }
+    if(dp[n]!=-1){
+        return dp[n];
+    }
+    dp[n] = fib(n-1) + fib(n-2);
+    return dp[n];
+}
+
+here if we want fib(4) then we check whether the values of fib(3) & fib(2)
+
+exist or not . If exist then that values else we compute.
+
+But in previous case each and every time we calculate the values of fib(n-1) 
+
+and fib(n-2) bcz we don't store the values.
+
+
+subarray is contiguous part of the array
+
+subsequence is non contiguous but in order
+
+subset is any order
+
+a = [4,2,1,3,5]
+
+[4,2,1] is subarray but [4,1,3] is not subarray
+
+[4,1,3] is subsequence but [4,3,1] is not subsequence
+
+
+
