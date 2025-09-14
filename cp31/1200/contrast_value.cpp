@@ -24,7 +24,6 @@ int main(){
         }
         if(t.size()>1) b.push_back(t[t.size()-1]);
     
-
         cout << b.size() << endl;
 
     }
