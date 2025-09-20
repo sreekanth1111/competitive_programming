@@ -87,3 +87,5 @@ void pick(int ind, vector<int>&vec){
 }
 
 time is O(n*2^n) n-to print vector 2^n - no of subsets
+
+backtracking will work only if n is less than 20 else it gives tle
