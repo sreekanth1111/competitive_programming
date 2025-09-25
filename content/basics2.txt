@@ -109,6 +109,24 @@ for(int i=1; i<=n; i++){
 
 time complexity is O(mn)
 
+Kadane algorithm :- It is used to find the maximum sum of the subarray in 
+
+O(n) time
+
+maxEnding = a[0];
+maxsum = a[0];
+
+for(int i=1; i<n; i++){
+    maxEnding = max(maxEnding+a[i],a[i]);
+    maxsum = max(maxsum,maxEnding);
+}
+
+if maxEnding is -ve then we start we new subarray
+else we extend the subarray
+
+maxsum stores the maxium sum of the subarray 
+while maxEnding stores the sum of the subarray
+
 
 
 
