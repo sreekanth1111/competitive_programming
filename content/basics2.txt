@@ -99,6 +99,14 @@ for(int i=1; i<=n; i++){
     p[i] = p[i-1] + a[i];
 }
 
+to add 1 from index l to r 
+
+add 1 at l and subtract 1 at r+1
+
+and perform prefix sum
+
+
+
 prefix sum for 2d array
 
 for(int i=1; i<=n; i++){
