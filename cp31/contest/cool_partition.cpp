@@ -8,27 +8,28 @@ int main(){
     while(t--){
         
         long long n; cin >> n;
-        vector<long long> a(n);
-
-        for(int i=0; i<n; i++) cin >> a[i];
-
-        long long cnt = 1, num = a[0];
+        vector<long long> a(n),cnt(n);
         set<long long> st;
-        st.insert(a[0]);
 
-        int i=1;
-        long long total = 1;
-        while(i<n){
-            long long val = 0;
-            if(*st.find(a[i]!=*st.end())){
-                val++;
-                if(total==val){
-                    total++;
-                }
+        for(int i=0; i<n; i++){
+            cin >> a[i];
+            st.insert(a[i]);
+            cnt[i] = st.size();
+        }
+        st.clear();
+
+        long long count = 0, freq = cnt[n-1];
+        for(int i=n-1; i>=0; i--){
+            st.insert(a[i]);
+            if(freq==st.size()){
+                count++;
+                if(i==0) break;
+                freq = cnt[i-1];
+                st.clear();
             }
         }
 
-        cout << cnt << endl;
+        cout << count << endl;
 
     }
     
