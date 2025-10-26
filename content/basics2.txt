@@ -237,4 +237,60 @@ long long main(){
 
 
 
+Two pointers problem - time complexity is O(n+m) 
+
+where O(n) is time complexity for pointer 1 and 
+
+O(m) is time complexity for pointer 2
+
+Example :- Three sum problem i.e sum of 3 elements should be equal to x
+
+sort(a.begin(),a.end())
+
+for(int i=0; i<n; i++){ 
+
+    int k = n-1;
+    for(int j=i+1; j<n; j++){
+
+        int rem = x-(a[i]+a[j]);
+
+        while(j<k && k>rem){
+            k--;
+        }
+
+        if(j<k && k<n && a[k] == rem){
+            cout << a[i] << " " << a[j] << " " << a[k] << endl;;
+        }
+    }
+}
+
+here time complexity is O(n*(n+n)) i.e O(n^2) bcz
+
+j loop time complexity is O(n+n) not O(n^2) as k
+
+runs for n times for all j's combined not for each j
+
+
+Recursion 
+
+Example - divide array into 2 groups such that the absolute difference between the 
+
+sum of group 1 and sum of group2 is minimum
+
+int solve(int i = 0, int currentsum = 0){
+    if(i==n){
+        int othersum = totalsum - currentsum;
+        return abs(currentsum-othersum);
+    }
+
+    return min(
+        solve(i+1,currentsum+a[i]),
+        solve(i+1,currentsum)
+    );
+}
+
+
+
+
+
 
