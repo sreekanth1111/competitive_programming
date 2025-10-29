@@ -290,6 +290,107 @@ int solve(int i = 0, int currentsum = 0){
 }
 
 
+Binary Search
+
+1) Basic method
+
+Finding first index of target
+
+int search(vector<int> a, int target){
+    int l = 0, r = a.size()-1;
+    while(l<r){
+
+        int mid = (left+right)/2;
+        if(a[mid]<target) l = mid+1;
+        else r = mid;
+    }
+    return (a[r]==target ? r : -1);
+}
+
+Finding last index of target
+
+int search(vector<int> a, int target){
+    int l = 0, r = a.size()-1;
+    while(l<r){
+
+        int mid = (left+right+1)/2;
+        if(a[mid]<=target) l = mid;
+        else r = mid-1;
+    }
+    return (a[l]==target ? l : -1);
+}
+
+2) some variation 
+
+Finding first index of target
+
+int search(vector<int> a, int target){
+
+    int ans = 0;
+    int l = 0, r = a.size()-1;
+    while(l<=r){
+        int mid = (left+right)/2;
+        if(a[mid]<target){
+            l = mid+1;
+        } 
+        else{
+            ans = r;
+            r = mid-1;
+        }
+    }
+    return ans;
+}
+
+Finding last index of target
+
+int search(vector<int> a, int target){
+
+    int ans = 0;
+    int l = 0, r = a.size()-1;
+    while(l<=r){
+        int mid = (left+right)/2;
+        if(a[mid]<=target){
+            ans = l;
+            l = mid+1;
+        } 
+        else{
+            r = mid-1;
+        }
+    }
+    return ans;
+}
+
+3) Simple method - Here l points to last true and r points to first false
+
+It is based on predicate function
+
+First index of target
+
+int l = -1, r = a.size();
+while(r-l>1){
+    int mid = (l+r)/2;
+    (a[mid]<target) ? l = mid : r = mid;
+}
+
+if(r!=n && a[r]==target) return r;
+else return -1;
+
+Last index of target
+
+int l = -1, r = a.size();
+while(r-l>1){
+    int mid = (l+r)/2;
+    (a[mid]<=target) ? l = mid : r = mid;
+}
+
+if(l!=-1 && a[l]==target) return l;
+else return -1;
+
+
+
+
+
+
 
 
 
