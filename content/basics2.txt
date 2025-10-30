@@ -387,6 +387,58 @@ if(l!=-1 && a[l]==target) return l;
 else return -1;
 
 
+Bit Manipulation
+
+In C++  ~x is -(x+1)
+
+If a binary number consists only 1's then the value of the number is -1
+
+1111...111 is -1
+1111...110 is -2
+1111...101 is -3 and so on
+
+Bit Mask :- A bitmask is a sequence of N bits that encode a subset , where the
+
+element is taken if a bit is set, and not taken if a bit is unset
+
+in 10110 , 1,2,4 indices are taken and 0,3 are not taken.
+
+instead of using recursion to generate all possible subsets of an array
+
+we can use this method. 
+
+
+for(int i=0; i<n; i++){
+    cin >> a[i];
+}
+
+for(int i=0; i<(1<<n); i++){
+    for(int j=0; j<n; j++){
+        if((i>>j) & 1){
+            cout << a[i] << " ";
+        }
+    }
+    cout << endl;
+}
+
+Greedy Algorithms
+
+Kadane Algorithm - to find maximum sum of a subset in array in O(n) time
+
+int sum = 0;
+int max_sum = INT_MIN;
+for(int i=0; i<n; i++){
+    sum += a[i];
+    max_sum = max(max_sum,sum);
+    if(sum<0) sum = 0;
+}
+
+cout << max_sum << endl;
+
+
+
+
+
 
 
 
