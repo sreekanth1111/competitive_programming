@@ -1,15 +1,6 @@
 #include<bits/stdc++.h>
-#define MOD 998244353
 
 using namespace std;
-
-long long fact(long long n){
-    long long res = 1;
-    for(int i=2; i<=n; i++){
-        res = (res*i)%MOD;
-    }
-    return res;
-}
 
 int main(){
     int t; cin >> t;
