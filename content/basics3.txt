@@ -1,0 +1,43 @@
+String hashing - converting the string to an integer.
+
+it is used for checking whether two strings are equal or not
+
+Here we took 31 instead of 26 bcz 31 is a prime and 26 is not a prime.
+
+31 gives less no of collisions.
+
+const int MOD = 1e9+7;
+long long get_hash(string s){
+    long long h = 0;
+    for(char c : s) h = (h*31 + (c-'a'+1)) % MOD;
+    return h;
+}
+
+cout << (get_hash("abc") == get_hash("dbc")) << endl; 
+
+1) we can use this when we are given with Q queries and
+
+check for s[i1,j1] = s[i2,j2] for each query
+
+we can do this in O(n+q) time using above method and prefix hashing
+
+like when we are calculating hash value we store intermediate values in the prefix array
+
+hash value of s[i1,j1] = s[j1] - (s[i1-1] * 31^(j1-i1+1))
+
+2) Rabin Karp (Pattern Matching)
+
+s = abcbcb , t = bcb find no of occurrence of t in s
+
+we can do this using sliding window + prefix hashing
+
+s[0:3] == t, s[1:4] == t , ... and so on 
+
+we can find hash value of s[1:4] using prefix hashing
+
+s[1:4] = p[4] - (p[0] * 31^(4)) 
+
+so we can do pattern matching in O(n+m) time 
+
+bruteforce will take O(n*m) time
+
