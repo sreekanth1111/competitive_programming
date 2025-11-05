@@ -41,3 +41,34 @@ so we can do pattern matching in O(n+m) time
 
 bruteforce will take O(n*m) time
 
+
+Priority queue pair trick to sort the pair array where x should be sorted according
+
+to ascending order and y should be according to descending order
+
+Priority_queue<pair<int,int>> pq;
+for(int i=0; i<n; i++){
+    int a,b; cin >> a >> b;
+    pq.push({-a,b});
+}
+
+while(pq.empty() == false){
+    int a = -pq.top.first;
+    int b = pq.top.second;
+    cout << a << b;
+    pq.pop();
+}
+
+Priority queue always stores in descending order. so when we multiply by -1 
+
+this order will be reversed i.e, max ele becomes min and min ele becomes max
+
+so thereby we get initial min ele at top of Priority queue
+
+and when we are printing we again multiply by 1
+
+to get ascending order
+
+
+
+
