@@ -70,5 +70,91 @@ and when we are printing we again multiply by 1
 to get ascending order
 
 
+Ternery Search
+
+int eps = 1e-9
+int l = 0, r = 1e9;
+while(r-l>eps){
+    int m1 = l + (r-l)/3;
+    int m2 = r - (r-l)/3;
+    if(f(m1)<f(m2)) l = m1;
+    else r = m2;
+}
+
+cout << l << endl;
+
+f(m1)<f(m2) is just an condition we can put anything there 
+
+according to our requirement
+
+
+Interative problems :- In Interative problems, you get answers for your queries.
+
+output a query, an input will be given as an answer.
+
+remove fastio and use endl (not '\n') when solving Interative problems
+
+endl = '\n' + cout.flush()
+
+
+
+
+Two pointers :-
+
+If calculating an answer takes O(n^2) time then
+
+applying binary search reduces to O(nlogn) time
+
+applying two pointers technique reduces to O(n) time
+
+if we can solve a problem using binary search then we can 
+
+definitively a solve this problem using two pointers
+
+Ex :- Longest length of subarray such that sum <= K
+
+while(j<n){
+    sum += arr[j];
+    while(i<=j && sum>k){
+        sum -= arr[i];
+        i++;
+    }
+    ans = max(ans,j-i+1);
+    j++;
+}
+
+Policy based data structure :- It works same as set except that it is used
+
+to access the element at particular index in O(logn) time
+
+whereas set takes O(n) time .
+
+pbds a;
+for(auto i : arr){
+    a.insert(i);
+}
+
+cout << a.find_by_order(i) << endl; // prints elements at index i in O(logn) time
+
+cout << a.order_of_key(ele) << endl; // prints index of the element
+
+You need to include some libraries to use pbds . so just chatgpt it before using
+
+Example :- to find median of every window K using sliding window technique
+
+pbds A;
+for(int i=0; i<n; i++){
+    A.insert({arr[i],i});
+}
+
+ans.pb(*(A.find_by_order(k/2)).first);
+for(int i = 1; i<=n-k; i++){
+    A.insert({arr[i+k-1],i+k-1});
+    A.erase({arr[i-1],i-1});
+    ans.pb(*(A.find_by_order(k/2)).first);
+}
+
+for(auto i : ans) cout << i << endl;
+
 
 
