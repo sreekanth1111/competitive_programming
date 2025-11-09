@@ -97,8 +97,6 @@ remove fastio and use endl (not '\n') when solving Interative problems
 endl = '\n' + cout.flush()
 
 
-
-
 Two pointers :-
 
 If calculating an answer takes O(n^2) time then
@@ -155,6 +153,39 @@ for(int i = 1; i<=n-k; i++){
 }
 
 for(auto i : ans) cout << i << endl;
+
+
+Gcd :-
+
+gcd(a,b) = gcd(abs(a),abs(b));
+
+gcd(a,b) = gcd(a,b-a) = gcd(a,b-2a) = ... = gcd(a,b-na);
+
+where b-na >= 0;
+
+gcd(a,b) = gcd(b%a,a);
+
+lcm(a,b) * gcd(a,b) = a*b;
+
+Euclid's Extended Algorithm :-
+
+gcd(a,b) = ax+by
+
+int gcd(int a, int b, int &x, int &y){
+    if(a==0){
+        x = 0;
+        y = 1;
+        return b;
+    }
+    int x1,y1;
+    int g = gcd(b%a,a,x1,y1);
+    x = y1 - (b/a)*x1;
+    y = x1;
+    return g;
+}
+
+
+
 
 
 
