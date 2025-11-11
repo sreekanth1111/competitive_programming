@@ -182,7 +182,129 @@ int gcd(int a, int b, int &x, int &y){
     x = y1 - (b/a)*x1;
     y = x1;
     return g;
+
+    
 }
+
+regular method takes O(n*sqrt(n)) time but this method takes O(nloglogn) time
+
+Prime factorisation using Sieve
+
+vector<int> spf(100,-1);
+for(int i=2; i<100; i++){
+    if(spf[i]==-1){
+        for(int j=i; j<100; j+=i){
+            if(spf[j]==-1) spf[j] = i;
+        }
+    }
+}
+
+int n = 20;
+while(n>1){
+    cout << spf[n] << " ";
+    n /= spf[n];
+}
+
+here spf is smallest prime factor of a number  
+
+building spf array time is O(nloglogn)
+
+factorising a number is O(logn)
+
+so total time is O(nloglogn)
+
+
+Coordinate shifting :-
+
+suppose we want to check prime or not in the range of l to r 
+
+not starting from 1.
+
+int l,r; cin >> l >> r;
+int size = r-l+1;
+int dummy[size];
+for(int i=0; i<n; i++) dummy[i] = 1;
+
+for(int i=2; i*i<=r; i++){
+    if(sieve[i]==1){
+        int initial = (l/i) * i;
+        if(intital < 1) initial += i;
+        initial = max(i*i,initial);
+        for(int j=initial-1; j<size; j+=i){
+            dummy[j] = 0;
+        }
+    }
+}
+int cnt = 0;
+for(int i=0; i<size; i++){
+    if(dummy[i]) cnt++;
+}
+
+cout << cnt << endl;
+
+
+Combinatorics :-
+
+The no of ways to reach from (1,1) to (n,m) is (n+m-2)C(n-1)
+
+i.e (n+m-2)!/((n-1)!(m-1)!)
+
+the no of ways of dividing a number n into sum of k non zero numbers is (n-1)C(k-1)
+
+the no of ways of dividing a number n into sum of k non negative numbers is (n+k-1)C(k-1)
+
+the above are derived using distribution principle in permutations and combinations
+
+x1 + x2 + .. + xk = n 
+
+for non zero , no of ways = ((n-k)+k-1)C(k-1)
+
+bcz each number has value of atlest 1 so we subtract k from n
+
+for non negative , no of ways = (n+k-1)C(k-1)
+
+here each number can be >= 0 so need subtract k from n
+ 
+Dynamic Programming :-
+
+Ex :- Fibonocci Series
+
+int Fibonocci(int n){
+    if(n==1 || n==2){
+        return 1;
+    }
+    if(dp[n]!=-1){
+        return dp[n];
+    }
+    return dp[n] = Fibonocci(n-1) + Fibonocci(n-2);
+}
+
+Ex :- Grid problem to reach from (0,0) to (n-1,m-1)
+
+int f(int i, int j){
+    if(i>=n || j>=m) return INF;
+    if(i==n-1 && j==m-1) return grid[i][j];
+    if(dp[i][j]!=-1) return dp[i][j];
+
+    return dp[i][j] = grid[i][j] + min(f(i+1,j),f(i,j+1));
+}
+
+
+State :- A subproblem that we want to solve. Here subproblem should have a meaning.
+
+Transition :- calculating the answers for a state by using the answers 
+
+of other smaller states.
+
+Ex :- 
+
+state - dp[i][j] or f(i,j)
+
+transition - dp[i][j] = dp[i-1][j] + dp[i][j-1];
+
+
+
+
 
 
 
