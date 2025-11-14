@@ -3,43 +3,29 @@
 using namespace std;
 
 int main(){
+    
     string s; cin >> s;
     long long n = s.size();
-    vector<long long> zero,cnt;
+    vector<long long> w(n);
 
-    long long v=0,z=0;
-    for(int i=0; i<n; i++){
-        if(s[i]=='v'){
-            v++;
-            if(z!=0){
-                zero.push_back(z);
-                z = 0;
-            }
+    w[0] = 0;
+    for(int i=1; i<n; i++){
+        if(s[i]=='v' && s[i-1]=='v'){
+            w[i] = w[i-1] + 1;
         }
         else{
-            z++;
-            if(v!=0){
-                cnt.push_back(v-1);
-                v = 0;
-            }
+            w[i] = w[i-1];
         }
     }
-    if(v!=0) cnt.push_back(v-1);
 
-    vector<long long> pre(zero.size());
-    pre[0] = zero[0];
-    for(int i=1; i<zero.size(); i++){
-        pre[i] = pre[i-1] + zero[i];
-    }
-
-    long long count = 0;
-    for(int i=0; i<cnt.size()-1; i++){
-        for(int j=i+1; j<=pre.size(); j++){
-            count += pre[j-1]*cnt[j]*cnt[i];
+    long long w_cnt = w[n-1];
+    long long cnt = 0;
+    for(int i=2; i<n-2; i++){
+        if(s[i]=='o'){
+            cnt += w[i-1]*(w_cnt-w[i-1]);
         }
     }
-    
-    cout << count << endl;
-    
+
+    cout << cnt << endl;
     
 }
